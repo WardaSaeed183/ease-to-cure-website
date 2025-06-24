@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup Form</title>
+    <!-- Fonts, Icons and Tailwind CSS CDN -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../css/login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <!-- Centered Navbar -->
+    <div
+        class="k2d mt-3 w-[93%] mx-auto p-[2px] rounded-[40px] bg-gradient-to-r from-cyan-400 to-purple-600 shadow-md mb-5">
+        <div class="bg-white rounded-[38px] py-2 px-6 flex justify-between items-center gap-4">
+            <!-- Logo on the left -->
+            <div class="flex items-center">
+                <img src="../../assets/websitelogo.png" alt="Logo" class="w-[65px] h-[65px] object-contain mr-3" />
+                <span class="k2d text-[32px] font-bold text-black logo-text">EASE TO CURE</span>
+            </div>
+
+
+            <!-- Buttons aligned to right -->
+            <div class="flex items-center gap-4 ml-auto">
+
+                <!-- Toggle Switch With Icons -->
+                <div class="flex items-center gap-2 hidden">
+                    <img src="../../assets/sun.png" alt="Sun" id="sun-icon"
+                        class="w-5 h-5 transition-opacity duration-300" />
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle">
+                        <span class="slider"></span>
+                    </label>
+                    <img src="../../assets/moon.png" alt="Moon" id="moon-icon"
+                        class="w-5 h-5 transition-opacity duration-300" />
+                </div>
+                <!-- Home Button -->
+                <div class="group p-[2px] rounded-[30px] bg-gradient-to-r from-cyan-400 to-purple-600 shadow">
+                    <a href="../user/homePage.html">
+                        <button
+                            class="group-hover:text-white px-5 py-2 rounded-[25px] bg-white hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-600 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-md flex items-center gap-2 font-medium">
+                            Home
+                            <i
+                                class="bx bxs-home bx-sm home-icon bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent group-hover:text-white transition-colors duration-300"></i>
+                        </button>
+                    </a>
+                </div>
+
+                <!-- Categories Button -->
+                <div class="relative p-[2px] rounded-[30px] bg-gradient-to-r from-cyan-400 to-purple-600 shadow"
+                    id="categories-wrapper">
+                    <button id="categoriesBtn"
+                        class="group px-5 py-2 rounded-[25px] bg-white hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-600 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-md flex items-center gap-2 font-medium w-full">
+                        Categories
+                        <span id="arrowIcon"
+                            class="text-[#7a44f3] group-hover:text-white transition-colors duration-300 text-sm">▼</span>
+                    </button>
+
+                    <!-- Dropdown Menu -->
+                    <div id="dropdownMenu"
+                        class="hidden absolute right-[-10px] mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-50 min-w-[200px] text-base">
+                        <a href="#" class="block px-6 py-3 hover:bg-cyan-100 rounded-t-xl transition">Specialities</a>
+                        <a href="#" class="block px-6 py-3 hover:bg-cyan-100 rounded-b-xl transition">Diseases</a>
+                    </div>
+                </div>
+
+                <!-- Disabled Admin Button -->
+                <div class="group p-[2px] rounded-[30px] bg-gradient-to-r from-cyan-400 to-purple-600 shadow">
+                    <a href="">
+                        <button class="px-5 py-2 rounded-[25px] bg-white text-black transition-all duration-300 shadow-md flex items-center gap-2 font-medium
+                   group-hover:bg-gray-200 group-hover:text-black group-hover:scale-100 cursor-not-allowed">
+                            Admin
+                            <i class="bx bxs-lock bx-sm bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent 
+               group-hover:text-black transition-colors duration-300 text-[20px]"></i>
+                        </button>
+                    </a>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Signup form container -->
+    <div class="container">
+        <!-- Login Form -->
+        <div class="form-box login">
+            <form action="#" id="login-form">
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input type="email" id="login-email" placeholder="Email" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="forgot-link">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+        <!-- Signup box -->
+
+        <div class="form-box register">
+            <form action="#">
+                <h1>Registration</h1>
+                <div class="input-box">
+                    <input type="text" placeholder="Username" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="input-box password">
+                    <input type="password" placeholder="Confirm Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <!-- Admin key input -->
+                <fieldset class="adminKey-fieldset-component">
+                    <legend>Verify Admin Key</legend>
+                    <div class="adminKey-input-wrapper">
+                        <input type="text" maxlength="1" class="adminKey-digit" inputmode="numeric" />
+                        <input type="text" maxlength="1" class="adminKey-digit" inputmode="numeric" />
+                        <input type="text" maxlength="1" class="adminKey-digit" inputmode="numeric" />
+                        <span class="adminKey-separator"></span>
+                        <input type="text" maxlength="1" class="adminKey-digit" inputmode="numeric" />
+                        <input type="text" maxlength="1" class="adminKey-digit" inputmode="numeric" />
+                        <input type="text" maxlength="1" class="adminKey-digit" inputmode="numeric" />
+                    </div>
+                </fieldset>
+
+                <button type="submit" class="btn">Register</button>
+
+            </form>
+        </div>
+
+
+        <!-- Box toggles -->
+        <div class="toggle-box">
+            <div class="toggle-panel toggle-left">
+                <h1>Welcome Back!</h1>
+                <p>Don't have an account?</p>
+                <button class="btn register-btn">Register</button>
+            </div>
+
+            <div class="toggle-panel toggle-right">
+                <h1>Hello, Welcome!</h1>
+                <p>Already have an account?</p>
+                <button class="btn login-btn">Login</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Script -->
+    <script type="module" src="../../js/pages/login.js"></script>
+</body>
+
+</html>
