@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <!-- Required Fonts, Tailwind CSS and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=K2D:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<!-- Custom Styles -->
+<link rel="stylesheet" href="../../css/feedBack.css">
+
+<body>
+    <!-- Centered Navbar -->
+    <div
+        class="k2d mt-3 w-[93%] mx-auto p-[2px] rounded-[40px] bg-gradient-to-r from-cyan-400 to-purple-600 shadow-md mb-5">
+        <div class="bg-white rounded-[38px] py-2 px-6 flex justify-between items-center gap-4">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <img src="../../assets/websitelogo.png" alt="Logo" class="w-[65px] h-[65px] object-contain mr-3" />
+                <span class="k2d text-[32px] font-bold text-black logo-text">EASE TO CURE</span>
+            </div>
+
+            <!-- Navbar Buttons -->
+            <div class="flex items-center gap-4 ml-auto">
+
+                <!-- Theme Toggle (optional, hidden by default)
+                <div class="flex items-center gap-2 hidden">
+                    <img src="/assets/sun.png" alt="Sun" id="sun-icon"
+                        class="w-5 h-5 transition-opacity duration-300" />
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle">
+                        <span class="slider"></span>
+                    </label>
+                    <img src="/assets/moon.png" alt="Moon" id="moon-icon"
+                        class="w-5 h-5 transition-opacity duration-300" />
+                </div> -->
+
+                <!-- Home Button -->
+                <div class="group p-[2px] rounded-[30px] bg-gradient-to-r from-cyan-400 to-purple-600 shadow">
+                    <a href="homePage.html">
+                        <button
+                            class="group-hover:text-white px-5 py-2 rounded-[25px] bg-white hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-600 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-md flex items-center gap-2 font-medium">
+                            Home
+                            <i
+                                class="bx bxs-home bx-sm bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent group-hover:text-white transition-colors duration-300"></i>
+                        </button>
+                    </a>
+                </div>
+
+                <!-- Categories Dropdown -->
+                <div class="relative p-[2px] rounded-[30px] bg-gradient-to-r from-cyan-400 to-purple-600 shadow"
+                    id="categories-wrapper">
+                    <button id="categoriesBtn"
+                        class="group px-5 py-2 rounded-[25px] bg-white hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-600 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-md flex items-center gap-2 font-medium w-full">
+                        Categories
+                        <span id="arrowIcon"
+                            class="text-[#7a44f3] group-hover:text-white transition-colors duration-300 text-sm">▼</span>
+                    </button>
+                    <div id="dropdownMenu"
+                        class="hidden absolute right-[-10px] mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-50 min-w-[200px] text-base">
+                        <a href="#" class="block px-6 py-3 hover:bg-cyan-100 rounded-t-xl transition">Specialities</a>
+                        <a href="#" class="block px-6 py-3 hover:bg-cyan-100 rounded-b-xl transition">Diseases</a>
+                    </div>
+                </div>
+
+                <!-- Admin Button -->
+                <div class="p-[2px] rounded-[30px] bg-gradient-to-r from-cyan-400 to-purple-600 shadow">
+                    <a href="login.html">
+                        <button
+                            class="group px-5 py-2 rounded-[25px] bg-white hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-600 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-md flex items-center gap-2 font-medium">
+                            Admin
+                            <i
+                                class="bx bxs-lock text-transparent bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text w-5 h-5 text-[20px] group-hover:text-white transition-all duration-300"></i>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback & Animation Container -->
+    </div>
+    <div class="container">
+        <!-- Animation box left -->
+        <div class="animation-box">
+            <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+                type="module"></script>
+            <dotlottie-player src="https://lottie.host/9d5f3275-c5a3-463e-a7a9-fab260d555a5/g4A7s33UzT.lottie"
+                background="transparent" speed="1" style="width: 500px; height: 500px" loop autoplay></dotlottie-player>
+        </div>
+        <!-- Form box right -->
+        <div class="form-box">
+            <form action="#">
+                <h1 class="feedback-heading">Feedback</h1>
+                <div class="input-box">
+                    <input type="text" placeholder="Your Name" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" placeholder="Your Email" required>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                <!-- Survey section -->
+                <div class="survey-container">
+                    <!-- Question 1 -->
+                    <div class="question-slide active">
+                        <div class="question-text"><b>1.</b>&nbsp The website is easy to navigate.</div>
+                        <div class="rating-stars">
+                            <span class="star" data-value="1"></span>
+                            <span class="star" data-value="2"></span>
+                            <span class="star" data-value="3"></span>
+                            <span class="star" data-value="4"></span>
+                            <span class="star" data-value="5"></span>
+                            <span class="rating-counter">0</span>
+                        </div>
+                    </div>
+                    <!-- Quesiton 2 -->
+                    <div class="question-slide">
+                        <div class="question-text"><b>2.</b>&nbsp I can find the information I need quickly.</div>
+                        <div class="rating-stars">
+                            <span class="star" data-value="1"></span>
+                            <span class="star" data-value="2"></span>
+                            <span class="star" data-value="3"></span>
+                            <span class="star" data-value="4"></span>
+                            <span class="star" data-value="5"></span>
+                            <span class="rating-counter">0</span>
+                        </div>
+                    </div>
+                    <!-- Quesiton 3 -->
+                    <div class="question-slide">
+                        <div class="question-text"><b>3.</b>&nbsp Health charts are easy to use and understand.</div>
+                        <div class="rating-stars">
+                            <span class="star" data-value="1"></span>
+                            <span class="star" data-value="2"></span>
+                            <span class="star" data-value="3"></span>
+                            <span class="star" data-value="4"></span>
+                            <span class="star" data-value="5"></span>
+                            <span class="rating-counter">0</span>
+                        </div>
+                    </div>
+                    <!-- Question 4 -->
+                    <div class="question-slide">
+                        <div class="question-text"><b>4.</b>&nbsp Medicine search is smooth & accurate.</div>
+                        <div class="rating-stars">
+                            <span class="star" data-value="1"></span>
+                            <span class="star" data-value="2"></span>
+                            <span class="star" data-value="3"></span>
+                            <span class="star" data-value="4"></span>
+                            <span class="star" data-value="5"></span>
+                            <span class="rating-counter">0</span>
+                        </div>
+                    </div>
+                    <!-- Quesiton 5 -->
+                    <div class="question-slide">
+                        <div class="question-text"><b>5.</b>&nbsp I would recommend this website to others.</div>
+                        <div class="rating-stars">
+                            <span class="star" data-value="1"></span>
+                            <span class="star" data-value="2"></span>
+                            <span class="star" data-value="3"></span>
+                            <span class="star" data-value="4"></span>
+                            <span class="star" data-value="5"></span>
+                            <span class="rating-counter">0</span>
+                        </div>
+                    </div>
+
+                    <!-- Questions Navigation arrows -->
+                    <div class="nav-arrows">
+                        <img src="../../assets/arrow.png" id="prevArrow" alt="Previous" />
+                        <img src="../../assets/arrow.png" id="nextArrow" class="next" alt="Next" />
+                    </div>
+                </div>
+
+                <!-- Custom Feedback -->
+                <div class="input-box">
+                    <textarea placeholder="Your custom feedback"></textarea>
+                    <i class='bx bxs-comment-detail'></i>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </div>
+    <!-- Alert box -->
+    <div class="custom-alert" id="customAlert">
+        <div class="alert-content">
+            <i class="bx bxs-error alert-icon"></i>
+            <h2 class="alert-title">Incomplete Feedback</h2>
+            <p class="alert-message">Rate all questions to continue!</p>
+            <button class="alert-button" onclick="closeAlert()">OK</button>
+        </div>
+    </div>
+    <!-- Success Animation  -->
+    <div id="successOverlay" class="success-overlay">
+        <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+            type="module"></script>
+        <dotlottie-player src="https://lottie.host/3d1dc27b-11e5-4d20-8dfa-44b7998f6438/j9sbYRhyPa.lottie"
+            background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+
+        <h2>Feedback Submitted Successfully</h2>
+    </div>
+
+
+
+    <!-- JavaScript -->
+    <script src="../../js/pages/feedBack.js"></script>
+</body>
+
+</html>

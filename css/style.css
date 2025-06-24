@@ -1,0 +1,261 @@
+/* === General & Body === */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f3f4f6;
+    background-image: url('../../assets/bg-image.svg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-x: hidden;
+}
+
+.k2d { font-family: 'K2D', sans-serif; }
+
+/* === Main "Dossier" Layout === */
+.dossier-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+/* === Left Column: Main Information === */
+.info-column { display: flex; flex-direction: column; }
+.info-card {
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    overflow: hidden; /* Important for the header background */
+}
+
+.info-header {
+    background: linear-gradient(135deg, #6f2cde, #33d2ff);
+    padding: 2.5rem 3rem;
+    color: white;
+}
+.info-header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.generic-name-subheading {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: white;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+
+.info-section {
+    padding: 0 3rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #8B5CF6;
+    padding-left: 1rem;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+.detail-item, .detail-item-full {
+    display: flex;
+    flex-direction: column;
+}
+.detail-item-full {
+    margin-top: 1.5rem;
+}
+.label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.detail-item b, .detail-item-full b {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1F2937;
+}
+.description-text {
+    font-size: 1rem;
+    color: #4B5563;
+    line-height: 1.7;
+}
+
+/* === Right Column: Context & Interaction === */
+.context-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.image-container {
+    background-color: white;
+    border-radius: 24px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+.image-container img {
+    max-width: 100%;
+    filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.1));
+}
+
+.reviews-card {
+    background: linear-gradient(to bottom, #f7faff, #f2f6ff);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    border: 1px solid #e5e7eb;
+}
+
+.reviews-card .section-title {
+    padding: 1.5rem 2rem;
+    margin: 0;
+    border-bottom: 1px solid #e5e7eb;
+    border-left: none;
+}
+
+.review-box {
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-grow: 1;
+    max-height: 250px;
+    overflow-y: auto;
+}
+.placeholder-text {
+    margin: auto;
+    color: #9CA3AF;
+}
+
+/* === THE FIX FOR PASTEL REVIEW CARDS IS HERE === */
+.review-item {
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    color: #2d3748; /* Darker text for better contrast */
+    font-weight: 500;
+    font-style: italic;
+    box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Pastel Color Cycle using :nth-child */
+/* 1st, 5th, 9th, etc. card will be Light Pink */
+.review-item:nth-child(4n + 1) {
+    background-color: #fff1f2; /* Light Pink */
+    border-left: 5px solid #f472b6;
+}
+
+/* 2nd, 6th, 10th, etc. card will be Light Green */
+.review-item:nth-child(4n + 2) {
+    background-color: #f0fdf4; /* Light Green */
+    border-left: 5px solid #4ade80;
+}
+
+/* 3rd, 7th, 11th, etc. card will be Light Blue */
+.review-item:nth-child(4n + 3) {
+    background-color: #eff6ff; /* Light Blue */
+    border-left: 5px solid #60a5fa;
+}
+
+/* 4th, 8th, 12th, etc. card will be Light Yellow */
+.review-item:nth-child(4n + 4) {
+    background-color: #fefce8; /* Light Yellow */
+    border-left: 5px solid #facc15;
+}
+/* === END OF FIX === */
+
+
+.add-review-wrapper {
+    display: flex;
+    gap: 0.5rem;
+    border-top: 1px solid #e5e7eb;
+    padding: 1rem;
+    margin-top: auto;
+}
+.add-review-wrapper input {
+    flex-grow: 1;
+    border: 1px solid #D1D5DB;
+    background-color: #f9fafb;
+    border-radius: 50px;
+    padding: 10px 15px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+.add-review-wrapper input:focus {
+    border-color: #8B5CF6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+}
+.submit-review-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(120deg, #8B5CF6, #22D3EE);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+.submit-review-btn:hover {
+    transform: scale(1.1);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1200px) {
+    .dossier-layout {
+        grid-template-columns: 1fr;
+    }
+    .image-container {
+        display: none;
+    }
+}
+
+
+
+.custom-footer {
+    /* These styles are from your homePage.css */
+    background: linear-gradient(90deg, #29d4fa, #7e24d3);
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+}
+
+.feedback-button {
+    /* These styles are from your homePage.css */
+    font-weight: 500;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.feedback-button:hover {
+    /* These styles are from your homePage.css */
+    transform: scale(1.03) translateY(-5px);
+    color: #7e24d3; /* This ensures the text color changes on hover */
+}

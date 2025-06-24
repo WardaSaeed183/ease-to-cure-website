@@ -1,0 +1,445 @@
+/* Importing Poppins and Orbitron fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+/* Universal box-sizing for consistent layout */
+* {
+    box-sizing: border-box;
+}
+
+/* Resetting default margins/padding and applying general body styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Poppins for general body, Orbitron for form elements */
+    height: 100vh; /* Ensures full viewport height */
+    width: 100vw; /* Ensures full viewport width */
+    overflow: hidden; /* Prevents horizontal scrollbars */
+
+    /* Background image setup: ensures it covers the entire viewport */
+    background: url('../assets/adminbg3.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Back Arrow Styling */
+.back-arrow {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it's above other elements */
+    filter: invert(100%); /* Make the arrow white if it's black */
+}
+
+/* Main outer container for layout */
+.container {
+    display: flex;
+    justify-content: flex-end; /* Aligns content (including forms) to the right */
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't affect total width/height */
+    gap: 2rem;
+}
+
+/* Search Form Styles - Ensure it's visible initially */
+.form-section {
+    display: block; /* Explicitly set to block to ensure visibility */
+    position: relative;
+    text-align: center;
+    color: white;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: 0;
+    transition: all 0.3s ease;
+}
+
+.underline {
+    text-decoration: underline;
+    font-size: clamp(2rem, 3.5vw, 2.625rem);
+    display: inline-block;
+    margin-bottom: 1vh;
+    font-weight: 100;
+}
+
+.bold-text {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: clamp(1.8rem, 3vw, 2.6875rem);
+    line-height: 1.2;
+    margin-bottom: 2.5vh;
+}
+
+input[type="text"]:not(.remove-form input[type="text"]),
+textarea:not(.remove-form textarea) {
+    padding: 1.2vh 1vw;
+    border-radius: 0;
+    border: 2px solid;
+    border-image: linear-gradient(to right, #52d0f2, #a244e3) 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+    font-size: clamp(0.875rem, 1.2vw, 1rem);
+    margin-bottom: 1.5vh;
+    width: 100%;
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+button:not(.remove-form button) {
+    background: linear-gradient(to right, #8b2de2, #ef77ff);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 1vh 2vw;
+    font-size: clamp(0.875rem, 1.2vw, 1rem);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.lock-icon {
+    width: clamp(16px, 1.2vw, 18px);
+    height: clamp(16px, 1.2vw, 18px);
+    margin-left: 0.5vw;
+    vertical-align: middle;
+}
+
+button:hover {
+    background: linear-gradient(to right, #ef77ff, #8b2de2);
+}
+
+/* Remove Form Styles - Crucially, set display to none initially */
+.remove-form {
+    position: relative;
+    display: none; /* THIS IS THE KEY CHANGE */
+    width: 400px;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.1);
+    border-top-left-radius: 36px;
+    border-bottom-left-radius: 36px;
+    padding: 20px;
+    padding-right: 40px;
+    padding-left: 10px;
+    color: white;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    margin-left: auto;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.remove-form.active { /* This class is now redundant as we'll use direct style manipulation */
+    display: flex;
+}
+
+.remove-form #heading {
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    transform: rotate(270deg);
+    position: relative;
+    left: -21px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.remove-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    width: 100%;
+    position: relative;
+    left: -104px;
+}
+
+.remove-form input[type="text"],
+.remove-form textarea {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.remove-form input::placeholder{
+    color: whitesmoke;
+    opacity: 1;
+}
+
+.remove-form textarea {
+    resize: none;
+    height: 60px;
+    color: white;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+.remove-form .warning {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: black;
+    font-size: 13px;
+    max-width: 198px;
+    box-sizing: border-box;
+}
+
+.remove-form .warning input {
+    margin-left: 5px;
+}
+
+.remove-form button {
+    margin-top: 4px;
+    padding: 6px;
+    background: linear-gradient(to right, #8b2de2, #ef77ff);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 27px;
+    cursor: pointer;
+    width: 139px;
+    font-family: 'Orbitron';
+    font-weight: 100;
+    box-sizing: border-box;
+}
+
+.remove-form button:hover {
+    background: linear-gradient(to right, #ef77ff, #8b2de2);
+}
+
+.remove-form #lastdiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 7px;
+}
+
+/* Media Queries for responsiveness */
+
+@media (max-width: 1366px) {
+    .remove-form {
+        width: 34vw;
+        max-width: 400px;
+        padding: 1.5vw;
+        padding-right: 3vw;
+        padding-left: 0.8vw;
+        border-top-left-radius: 2.5vw;
+        border-bottom-left-radius: 2.5vw;
+    }
+    .remove-form #heading {
+        font-size: 1.5em;
+        margin-bottom: 25px;
+        transform: rotate(270deg);
+        position: relative;
+        left: -21px;
+        font-family: 'Orbitron', sans-serif;
+    }
+    .remove-form form {
+        gap: 19px;
+        width: 100%;
+        position: relative;
+        left: -104px;
+    }
+    .remove-form input[type="text"],
+    .remove-form textarea {
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid white;
+        background-color: rgba(255,255,255,0.1);
+        color: white;
+        font-size: 14px;
+        outline: none;
+        box-sizing: border-box;
+    }
+    .remove-form textarea {
+        resize: none;
+        height: 60px;
+        min-height: 60px;
+        color: white;
+        border-radius: 10px;
+        border: 2px solid white;
+    }
+    .remove-form .warning {
+        height: 60px;
+        min-height: 60px;
+        color: black;
+        border-radius: 10px;
+        border: 2px solid white;
+    }
+    .remove-form .warning input {
+        margin-left: 5px;
+    }
+    .remove-form button {
+        margin-top: 4px;
+        padding: 6px;
+        background: linear-gradient(to right, #8b2de2, #ef77ff);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 27px;
+        cursor: pointer;
+        width: 139px;
+        font-family: 'Orbitron';
+        font-weight: 100;
+        box-sizing: border-box;
+    }
+    .remove-form button:hover {
+        background: linear-gradient(to right, #ef77ff, #8b2de2);
+    }
+    .remove-form #lastdiv {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 7px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 5vh;
+    }
+    .form-section, .remove-form {
+        width: 80vw;
+        padding: 3vw;
+        padding-right: 5vw;
+        padding-left: 2vw;
+        border-radius: 5vw;
+        flex-direction: column;
+    }
+    .form-section h1, .remove-form #heading {
+        transform: none;
+        position: static;
+        margin-bottom: 20px;
+        font-size: 2em;
+        text-align: center;
+    }
+    .form-section input[type="text"],
+    .form-section button,
+    .remove-form form {
+        left: 0;
+        gap: 15px;
+        width: 90%;
+    }
+    .remove-form input[type="text"],
+    .remove-form textarea {
+        font-size: 3.5vw;
+        padding: 2.5vw;
+        border-radius: 2vw;
+    }
+    .remove-form textarea {
+        height: 15vw;
+    }
+    .remove-form .warning {
+        font-size: 3vw;
+        padding: 1.5vw 2.5vw;
+        border-radius: 2vw;
+        max-width: none;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .remove-form button {
+        padding: 2vw;
+        font-size: 5vw;
+        width: 100%;
+    }
+    .remove-form #lastdiv {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+}
+
+@media (min-height: 900px) {
+    .remove-form {
+        width: 28vw;
+        padding: 30px;
+        padding-right: 60px;
+        padding-left: 20px;
+    }
+    .remove-form #heading {
+        font-size: 1.8em;
+        left: -35px;
+    }
+    .remove-form form {
+        gap: 15px;
+        left: -80px;
+    }
+    .remove-form input[type="text"],
+    .remove-form textarea {
+        font-size: 16px;
+        padding: 12px;
+    }
+    .remove-form textarea {
+        height: 70px;
+    }
+    .remove-form .warning {
+        font-size: 14px;
+        padding: 6px 12px;
+        max-width: 220px;
+    }
+    .remove-form button {
+        padding: 8px;
+        font-size: 30px;
+        width: 150px;
+    }
+}
+
+@media (width: 1366px) and (height: 768px) {
+
+    .remove-form {
+        width: 400px;
+        padding: 20px;
+        padding-right: 40px;
+        padding-left: 10px;
+        border-top-left-radius: 36px;
+        border-bottom-left-radius: 36px;
+    }
+    .remove-form #heading {
+        font-size: 1.5em;
+        margin-bottom: 25px;
+        left: -21px;
+    }
+    .remove-form form {
+      gap: 19px;
+      left: -104px;
+    }
+    .remove-form input[type="text"],
+    .remove-form textarea {
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+    .remove-form textarea {
+        height: 60px;
+    }
+    .remove-form .warning {
+        padding: 5px 10px;
+        font-size: 13px;
+        max-width: 198px;
+    }
+    .remove-form button {
+        padding: 6px;
+        font-size: 27px;
+        width: 139px;
+    }
+    .remove-form #lastdiv {
+        gap: 7px;
+    }
+}

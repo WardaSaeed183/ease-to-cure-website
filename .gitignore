@@ -1,0 +1,11 @@
+# Node modules
+/node_modules
+
+# macOS system files
+.DS_Store
+
+# Firebase debug logs
+firebase-debug.log
+
+# Environment variables
+.env
