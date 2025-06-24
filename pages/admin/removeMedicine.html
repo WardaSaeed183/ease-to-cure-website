@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Remove Medicine</title>
+  <link rel="stylesheet" href="../../css/removeMedicine.css" />
+</head>
+<body>
+  <img src="../../assets/back-arrow.png" alt="Back" class="back-arrow" id="backArrow">
+
+  <div class="container">
+    <div class="form-section" id="searchForm">
+      <h6><span class="underline">Remove Medicine</span></h6>
+      <h1>Enter<br /><span class="bold-text">Medicine Name or ID</span></h1>
+      <input type="text" id="medSearchInput" placeholder="Medicine Name or ID" />
+      <button id="searchBtn">
+        <span>Search</span>
+        <img src="../../assets/search.png" alt="search icon" class="lock-icon" />
+      </button>
+    </div>
+
+    <div class="remove-form" id="removeForm">
+      <span id="heading">Medicine&nbsp;<b>Details</b></span>
+      <form id="medForm">
+        <input type="text" id="medID" placeholder="Med ID" readonly />
+        <input type="text" id="medName" placeholder="Med Name" readonly />
+        <input type="text" id="genericName" placeholder="Generic Name" readonly />
+        <input type="text" id="chemicalFormula" placeholder="Chemical Formula" readonly />
+        <input type="text" id="medCategory" placeholder="Med Category" readonly />
+        <input type="text" id="symptoms" placeholder="Symptoms" readonly />
+        <input type="text" id="usedInDisease" placeholder="Used In Disease" readonly />
+        <input type="text" id="dosage" placeholder="Dosage" readonly />
+        <textarea id="description" placeholder="Description" readonly></textarea>
+
+        <div id="lastdiv">
+          <span class="warning">
+            <label>Warning Alert?</label>
+            <label><input type="radio" name="warning" value="yes" disabled /> Yes</label>
+            <label><input type="radio" name="warning" value="no" disabled /> No</label>
+          </span>
+
+          <button type="button" id="removeBtn">Remove</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script type="module" src="../../js/pages/removeMedicine.js"></script>
+</body>
+</html>

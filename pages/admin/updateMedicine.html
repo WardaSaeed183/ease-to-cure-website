@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Update Medicine</title>
+  <link rel="stylesheet" href="../../css/updateMedicine.css" />
+</head>
+<body>
+  <img src="../../assets/back-arrow.png" alt="Back" class="back-arrow" id="backArrow">
+
+  <div class="container">
+    <div class="form-section" id="searchForm">
+      <h6><span class="underline">Update Medicine</span></h6>
+      <h1>Enter<br /><span class="bold-text">Medicine Name or ID</span></h1>
+      <input type="text" name="medName" id="searchInput" placeholder="Med Name or ID" required />
+      <button id="searchBtn">
+        <span>Search</span>
+        <img src="../../assets/search.png" class="lock-icon" alt="Search icon" />
+      </button>
+    </div>
+
+    <div class="update-form" id="updateForm"> <span id="heading">Medicine&nbsp;<b>Details</b></span>
+      <form id="medForm">
+        <input type="text" name="medID" placeholder="Med ID" readonly />
+        <input type="text" name="medName" placeholder="Med Name" required />
+        <input type="text" name="genericName" placeholder="Generic Name" required />
+        <input type="text" name="chemicalFormula" placeholder="Chemical Formula" required />
+        <input type="text" name="medCategory" placeholder="Med Category" required />
+        <input type="text" name="symptoms" placeholder="Symptoms" required />
+        <input type="text" name="usedInDisease" placeholder="Used In Disease" required />
+        <input type="text" name="dosage" placeholder="Dosage" required />
+        <textarea name="description" placeholder="Description" required></textarea>
+
+        <div id="lastdiv">
+          <span class="warning">
+            <label>Warning Alert?</label>
+            <label><input type="radio" name="warning" value="yes" required> Yes</label>
+            <label><input type="radio" name="warning" value="no"> No</label>
+          </span>
+
+          <button type="submit" id="submitBtn">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script type="module" src="../../js/pages/updatemedicine.js"></script>
+</body>
+</html>
