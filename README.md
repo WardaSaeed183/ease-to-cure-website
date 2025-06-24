@@ -7,11 +7,11 @@ Admins can add, update, and manage medicine records through an intuitive dashboa
 General Users can browse medicines by category or disease, view details, and access health tools like BMI and BP calculators.
 
 🔧 Features
-User authentication (login/signup)
+Admin authentication (login/signup)
 
 Medicine management (add/update/view)
 
-Browse medicines by disease or category
+Browse medicines by disease or category 
 
 Health calculators: BMI, Blood Pressure, Sugar Chart
 
