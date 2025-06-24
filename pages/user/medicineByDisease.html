@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medicine by Disease</title>
+
+    <!-- Stylesheets and Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=K2D:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../css/medicineByDisease.css" />
+</head>
+<body class="bg-gray-100 bg-[url('../../assets/bg-image.svg')] bg-cover bg-fixed bg-[top_left]">
+
+    <!-- Navbar - UNCHANGED (Copied from homePage) -->
+    <div class="mt-3 max-w-[93%] mx-auto p-[2px] rounded-[40px] bg-gradient-to-r from-cyan-400 to-purple-600 shadow-md">
+        <div class="bg-white rounded-[38px] px-7 py-2 flex justify-between items-center gap-4">
+            <div class="flex items-center">
+                <img src="../../assets/websitelogo.png" alt="Logo" class="w-13 h-12 object-contain mr-3" />
+                <span class="k2d text-[26px] font-bold text-black logo-text">EASE TO CURE</span>
+            </div>
+            <div class="flex items-center gap-4 ml-auto">
+                <div class="group p-[2px] rounded-[30px] bg-gradient-to-r from-cyan-400 to-purple-600 shadow">
+                    <a href="#" id="homeBtn"><button class="px-5 py-2 rounded-[25px] bg-white text-black transition-all duration-300 shadow-md flex items-center gap-2 font-medium group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-purple-600 group-hover:text-white">Home <i class='bx bxs-home bx-sm bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent group-hover:text-white'></i></button></a>
+                </div>
+                <div class="relative p-[2px] rounded-[30px] bg-gradient-to-r from-cyan-400 to-purple-600 shadow" id="categories-wrapper">
+                    <button id="categoriesBtn" class="group px-5 py-2 rounded-[25px] bg-white hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-600 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-md flex items-center gap-2 font-medium w-full">Categories<span id="arrowIcon" class="text-[#7a44f3] group-hover:text-white transition-colors duration-300 text-sm">▼</span></button>
+                    <div id="dropdownMenu" class="hidden absolute right-[-10px] mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-50 min-w-[200px] text-base">
+                        <a href="/pages/user/medicineByCategory.html" class="block px-6 py-3 hover:bg-cyan-100 rounded-t-xl transition">Specialities</a>
+                        <a href="/pages/user/medicineByDisease.html" class="block px-6 py-3 hover:bg-cyan-100 rounded-b-xl transition">Diseases</a>
+                    </div>
+                </div>
+                <div class="p-[2px] rounded-[30px] bg-gradient-to-r from-cyan-400 to-purple-600 shadow">
+                    <a href="#" id="adminBtn"><button class="group px-5 py-2 rounded-[25px] bg-white hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-600 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-md flex items-center gap-2 font-medium">Admin <i class='bx bxs-lock text-transparent bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text w-5 h-5 text-[20px] group-hover:text-white'></i></button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Two-Column Main Layout -->
+    <div class="main-layout">
+        
+        <!-- Left Column: The Search and Results Cards -->
+        <div class="content-column">
+            <div class="search-card">
+                <!-- Changed Title -->
+                <h1 class="search-card-title">Find Medicines by Disease</h1>
+                <div class="search-field-wrapper">
+                    <!-- Changed Placeholder -->
+                    <input type="text" id="diseaseSearch" placeholder="Select a disease..." autocomplete="off" />
+                    <button id="searchBtn">
+                        <i class='bx bx-search-alt-2'></i>
+                        <span>Search</span>
+                    </button>
+                </div>
+                <div id="diseaseDropdown" class="category-dropdown"></div>
+            </div>
+            <div class="results-card" id="medicineBox">
+                 <!-- Changed Placeholder -->
+                <p class="placeholder-text">Choose a disease to begin</p>
+            </div>
+        </div>
+
+        <!-- Right Column: The Image -->
+        <div class="image-column">
+            <img src="../../assets/doctor.png" alt="Illustration of a doctor" class="doctor-image" />
+        </div>
+
+    </div>
+    
+    <footer class="custom-footer text-white py-10 px-6 md:px-20 mt-16">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            
+            <!-- Left Section - Links to Home -->
+            <div class="text-center md:text-left md:w-1/2 mb-10 md:mb-0">
+                <a href="/" class="group inline-block">
+                    <h2 class="text-4xl k2d-bold mb-2 group-hover:text-cyan-300 transition-colors">Ease To Cure</h2>
+                    <p class="max-w-md group-hover:text-gray-200 transition-colors">
+                        Reliable health insights and medicine details for informed decisions.
+                    </p>
+                </a>
+            </div>
+
+            <!-- Right Section - Links to Feedback Page -->
+            <div class="text-center md:text-right md:w-1/2">
+                <h2 class="text-3xl k2d-bold mb-4">Have a suggestion?</h2>
+                
+                <!-- This now links to the feedback page -->
+                <a href="/pages/user/feedback.html" class="inline-block">
+                    <button class="bg-white text-black py-3 px-8 rounded-full feedback-button text-lg font-semibold">
+                        Give Feedback
+                    </button>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script type="module" src="/js/pages/medicineByDisease.js"></script>
+</body>
+</html>
