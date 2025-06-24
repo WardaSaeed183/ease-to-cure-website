@@ -1,0 +1,407 @@
+/* Importing Poppins and Orbitron fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+/* Universal box-sizing for consistent layout */
+* {
+    box-sizing: border-box;
+}
+/* Resetting default margins/padding and applying general body styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Orbitron', sans-serif;
+    height: 100vh; /* Use 100vh to ensure it fills the viewport height */
+    width: 100vw; /* Use 100vw to ensure it fills the viewport width */
+    overflow: hidden; /* Prevents scrollbars from appearing */
+    box-sizing: border-box; /* Changed to border-box for more predictable sizing */
+
+    /* Background image setup */
+    /* Using cover ensures the background always covers the available area,
+       maintaining aspect ratio and cropping if necessary. */
+    background: url('../assets/adminbg3.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Back Arrow Styling */
+.back-arrow {
+    position: absolute; /* */
+    top: 20px; /* */
+    left: 20px; /* */
+    width: 40px; /* */
+    height: 40px; /* */
+    cursor: pointer; /* */
+    z-index: 1000; /* Ensure it's above other elements */
+    filter: invert(100%); /* Make the arrow white if it's black */
+}
+
+/* Main outer container for layout */
+.container {
+    display: flex;
+    justify-content: flex-end; /* Aligns content (including forms) to the right */
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't affect total width/height */
+    gap: 2rem; /* Gap between form sections (if applicable, though only remove-form is styled here) */
+}
+
+/* Form container with frosted glass effect */
+.form-box {
+    position: relative;
+    display: flex; /* Changed from display: none; to display: flex; as per our previous discussion for visibility */
+    width: 400px; /* Fixed width from first CSS's .form-box */
+    align-items: center;
+    justify-content: space-between; /* From first CSS's .form-box */
+    background: rgba(255, 255, 255, 0.1);
+    border-top-left-radius: 36px; /* From first CSS's .form-box */
+    border-bottom-left-radius: 36px; /* From first CSS's .form-box */
+    padding: 20px; /* From first CSS's .form-box */
+    padding-right: 40px; /* From first CSS's .form-box */
+    padding-left: 10px; /* From first CSS's .form-box */
+    color: white;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    margin-left: auto; /* Keeps it right-aligned */
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Ensures padding doesn't affect total width/height */
+}
+
+.form-box.active {
+    display: flex;
+}
+
+/* Form heading styling */
+#heading {
+    font-size: 1.5em; /* Keep em for relative sizing to parent font-size */
+    margin-bottom: 25px;
+    transform: rotate(270deg);
+    position: relative;
+    left: -21px; /* Relative positioning based on original design */
+}
+
+/* Form layout - vertical stacking */
+form {
+display: flex;
+flex-direction: column;
+gap: 18px;
+position: relative;
+left: -109px;
+width: 100%;
+}
+
+/* Input and textarea field styling */
+input[type="text"], textarea {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 14px; /* Base font size */
+    outline: none; /* Removes blue border on focus */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+input::placeholder{
+    color: whitesmoke;
+    opacity: 1; /* Corrected typo from 1s to 1 */
+}
+
+/* Fixed height for textarea */
+textarea {
+    resize: none;
+    height: 60px; /* Base height */
+    color: white;
+}
+
+/* Styling for the warning radio options */
+.warning {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: black;
+    font-size: 13px; /* Base font size */
+    max-width: 198px; /* Base max-width */
+    box-sizing: border-box;
+}
+
+/* Spacing for radio inputs inside .warning */
+.warning input {
+    margin-left: 5px;
+}
+
+/* Submit button styling */
+button {
+    margin-top: 4px;
+    padding: 6px;
+    background: linear-gradient(to right, #8b2de2, #ef77ff); /* Gradient bg */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 27px; /* Base font size */
+    cursor: pointer;
+    width: 139px; /* Base width */
+    font-family: 'Orbitron';
+    font-weight: 100;
+    box-sizing: border-box;
+}
+
+/* Hover effect for button */
+button:hover {
+    background: linear-gradient(to right, #ef77ff, #8b2de2); /* Reverse gradient */
+}
+
+/* Flex layout for last row of form (radio + button) */
+#lastdiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 7px;
+}
+
+
+/* For smaller screens, adjust the padding and size of the form-box */
+@media (max-width: 1366px) {
+    /* Adjustments for widths smaller than the original screenshot's width */
+    
+
+    .form-box {
+        width: 34vw; /* From user's final changes to first CSS */
+        max-width: 400px;
+        padding: 1.5vw;
+        padding-right: 3vw;
+        padding-left: 0.8vw;
+        border-top-left-radius: 2.5vw;
+        border-bottom-left-radius: 2.5vw    }
+
+    #heading {
+         font-size: 1.5em; /* From first CSS's #heading */
+    margin-bottom: 25px; /* From first CSS's #heading */
+    transform: rotate(270deg); /* From first CSS's #heading */
+    position: relative;
+    left: -21px; /* From first CSS's #heading */
+    font-family: 'Orbitron', sans-serif; /* Ensure Orbitron font */
+    }
+
+    form {
+    display: flex;
+    flex-direction: column;
+    gap: 19px; /* Updated gap from user's final changes to first CSS */
+    width: 100%;
+    position: relative;
+    left: -104px; /* Updated left position from user's final changes to first CSS */
+    }
+
+    input[type="text"], textarea {
+    padding: 10px; /* From first CSS */
+    border-radius: 10px; /* From first CSS */
+    border: 2px solid white; /* From first CSS */
+    background-color: rgba(255,255,255,0.1); /* From first CSS */
+    color: white;
+    font-size: 14px; /* From first CSS */
+    outline: none;
+    box-sizing: border-box;
+    /* margin-bottom property removed as it was not present in the initial .form-box input styles */
+
+    }
+
+    textarea {
+    resize: none;
+    height: 60px; /* From first CSS */
+    min-height: 60px; /* Ensure minimum height */
+    color: white;
+    border-radius: 10px; /* Re-added to ensure it overrides any other styles */
+    border: 2px solid white; /* Re-added to ensure it overrides any other styles */
+    }
+
+    .warning {
+    resize: none;
+    height: 60px; /* From first CSS */
+    min-height: 60px; /* Ensure minimum height */
+    color: white;
+    border-radius: 10px; /* Re-added to ensure it overrides any other styles */
+    border: 2px solid white; /* Re-added to ensure it overrides any other styles */
+    }
+
+    .warning input {
+        margin-left: 5px; /* From first CSS */
+    }
+
+    button {
+        margin-top: 4px; /* From first CSS */
+        padding: 6px; /* From first CSS */
+        background: linear-gradient(to right, #8b2de2, #ef77ff);
+        color: white;
+        border: none;
+        border-radius: 10px; /* From first CSS */
+        font-size: 27px; /* From first CSS */
+        cursor: pointer;
+        width: 139px; /* From first CSS */
+        font-family: 'Orbitron';
+        font-weight: 100;
+        box-sizing: border-box;
+    }
+    button:hover {
+    background: linear-gradient(to right, #ef77ff, #8b2de2);
+    }
+
+    #lastdiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 7px; /* From first CSS */
+    width: 100%;
+    }
+}
+
+/* Further adjustments for very small screens (e.g., mobile landscape) */
+
+@media (max-width: 768px) {
+    .container {
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 5vh;
+    }
+
+    .form-box {
+        width: 80vw;
+        padding: 3vw;
+        padding-right: 5vw;
+        padding-left: 2vw;
+        border-radius: 5vw;
+        flex-direction: column;
+    }
+
+    #heading {
+        transform: none;
+        position: static;
+        margin-bottom: 20px;
+        font-size: 2em;
+        text-align: center;
+    }
+
+    form {
+        left: 0;
+        gap: 15px;
+        width: 90%;
+    }
+
+    input[type="text"],textarea {
+        font-size: 3.5vw;
+        padding: 2.5vw;
+        border-radius: 2vw;
+    }
+
+    textarea {
+        height: 15vw;
+    }
+
+    .warning {
+        font-size: 3vw;
+        padding: 1.5vw 2.5vw;
+        border-radius: 2vw;
+        max-width: none;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    button {
+        padding: 2vw;
+        font-size: 5vw;
+        width: 100%;
+    }
+
+    #lastdiv {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+}
+
+
+/* Specific adjustment for very tall screens if needed (e.g., desktops with high resolution) */
+@media (min-height: 900px) {
+    /* You might want to slightly adjust padding or font-sizes if the layout stretches too much vertically */
+    
+    .form-box {
+        width: 28vw;
+        padding: 30px;
+        padding-right: 60px;
+        padding-left: 20px;
+    }
+    #heading {
+        font-size: 1.8em;
+        left: -35px;
+    }
+    form {
+        gap: 15px;
+        left: -80px;
+    }
+    input[type="text"], textarea {
+        font-size: 16px;
+        padding: 12px;
+    }
+    textarea {
+        height: 70px;
+    }
+    .warning {
+        font-size: 14px;
+        padding: 6px 12px;
+        max-width: 220px;
+    }
+    button {
+        padding: 8px;
+        font-size: 30px;
+        width: 150px;
+    }
+}
+
+
+
+
+/* Base adjustment for exactly 1366px width to ensure it matches the image as close as possible */
+@media (width: 1366px) and (height: 768px) {
+    
+    .form-box {
+        width: 400px;
+        padding: 20px;
+        padding-right: 40px;
+        padding-left: 10px;
+        border-top-left-radius: 36px;
+        border-bottom-left-radius: 36px;
+    }
+    #heading {
+        font-size: 1.5em;
+        margin-bottom: 25px;
+        left: -21px;
+    }
+    form {
+      gap: 19px;
+      left: -104px;
+    }
+    input[type="text"], textarea {
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+    textarea {
+        height: 60px;
+    }
+    .warning {
+        padding: 5px 10px;
+        font-size: 13px;
+        max-width: 198px;
+    }
+    button {
+        padding: 6px;
+        font-size: 27px;
+        width: 139px;
+    }
+    #lastdiv {
+        gap: 7px;
+    }
+}

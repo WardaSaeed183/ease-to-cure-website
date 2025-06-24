@@ -1,0 +1,160 @@
+/* --- General & Body --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f3f4f6;
+    background-image: url('../../assets/bg-image.svg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-x: hidden;
+}
+
+.k2d, .k2d-bold { font-family: 'K2D', sans-serif; }
+.k2d-bold { font-weight: 800; }
+
+/* --- NEW: Two-Column Main Layout --- */
+.main-layout {
+    display: flex;
+    align-items: center; /* Vertically align content and image */
+    justify-content: center; /* Center the whole layout */
+    gap: 2rem; /* Space between content and image */
+    padding: 4rem 2rem; /* Padding around the whole layout */
+    min-height: calc(100vh - 80px); /* Ensure it takes up vertical space */
+}
+
+/* The left column containing the search/results cards */
+.content-column {
+    flex: 1 1 600px; /* Flex-grow, flex-shrink, basis */
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* The right column for the image */
+.image-column {
+    flex: 1 1 450px; /* Flex-grow, flex-shrink, basis */
+    max-width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.doctor-image {
+    width: 100%;
+    height: auto;
+    /* Optional: Add a subtle effect to the image */
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+}
+
+
+/* --- Card Styles (Unchanged, but now inside .content-column) --- */
+.search-card, .results-card {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+}
+.search-card { z-index: 20; }
+
+/* Animated Gradient Border */
+.search-card::before, .results-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 24px; padding: 2px;
+    background: linear-gradient(135deg, #8B5CF6, #22D3EE, #EC4899, #F59E0B);
+    background-size: 400% 400%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude; 
+    z-index: -1; animation: gradient-spin 8s linear infinite;
+    opacity: 0.6; transition: opacity 0.3s ease;
+}
+.search-card:hover::before, .results-card:hover::before { opacity: 1; }
+@keyframes gradient-spin {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Card Content Styling */
+.search-card-title {
+    text-align: center; font-size: 2.5rem; font-weight: 800;
+    margin-bottom: 2rem; background: linear-gradient(to right, #6f2cde, #33d2ff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.search-field-wrapper { position: relative; display: flex; gap: 1rem; }
+#diseaseSearch {
+    flex-grow: 1; border: 1px solid #D1D5DB; background-color: #fff;
+    border-radius: 50px; padding: 14px 24px; font-size: 1rem; transition: all 0.3s ease;
+}
+#diseaseSearch:focus { outline: none; border-color: #8B5CF6; box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2); }
+#searchBtn {
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    padding: 14px 28px; border: none; border-radius: 50px;
+    background: linear-gradient(120deg, #8B5CF6, #3b82f6, #22D3EE);
+    background-size: 200% 200%; animation: gradient-spin 5s ease infinite;
+    color: white; font-weight: 600; cursor: pointer; transition: all 0.2s ease;
+}
+#searchBtn:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(111, 44, 222, 0.4); }
+#searchBtn i { font-size: 1.5rem; }
+
+/* Dropdown & Results Styling */
+.category-dropdown {
+    display: none; position: absolute; top: calc(100% + 5px); left: 0;
+    width: calc(100% - 155px); background: white; border-radius: 12px;
+    border: 1px solid #e5e7eb; box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+    max-height: 210px; overflow-y: auto; z-index: 1000;
+}
+.category-option { padding: 12px 20px; cursor: pointer; font-size: 0.95rem; }
+.category-option:hover { background-color: #f3f4f6; }
+.results-card { min-height: 250px; padding-top: 1.5rem; }
+.placeholder-text { margin: auto; font-size: 1.5rem; color: #6B7280; font-weight: 500; }
+.medicine-item {
+    background-color: #fff; padding: 1rem 1.5rem; border-radius: 16px;
+    font-weight: 600; color: #374151; cursor: pointer; border: 1px solid transparent;
+    transition: all 0.2s ease-in-out; margin-bottom: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+.medicine-item:hover { transform: translateY(-4px) scale(1.03); border-color: #8B5CF6; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+
+
+/* --- Responsive Design for Smaller Screens --- */
+@media (max-width: 1024px) {
+    .main-layout {
+        flex-direction: column; /* Stack columns vertically */
+        padding: 2rem 1rem; /* Reduce padding */
+    }
+
+    .image-column {
+        order: -1; /* Move the image to the top on smaller screens */
+        max-width: 300px; /* Make the image smaller */
+        margin-bottom: -2rem; /* Reduce the gap */
+    }
+    
+    .content-column {
+        max-width: 100%; /* Allow content to take full width */
+    }
+}
+
+
+.custom-footer {
+    /* These styles are from your homePage.css */
+    background: linear-gradient(90deg, #29d4fa, #7e24d3);
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+}
+
+.feedback-button {
+    /* These styles are from your homePage.css */
+    font-weight: 500;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.feedback-button:hover {
+    /* These styles are from your homePage.css */
+    transform: scale(1.03) translateY(-5px);
+    color: #7e24d3; /* This ensures the text color changes on hover */
+}

@@ -1,0 +1,462 @@
+/* Importing Poppins and Orbitron fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+/* Universal box-sizing for consistent layout */
+* {
+    box-sizing: border-box;
+}
+
+/* Resetting default margins/padding and applying general body styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Poppins for general body, Orbitron for form elements */
+    height: 100vh; /* Ensures full viewport height */
+    width: 100vw; /* Ensures full viewport width */
+    overflow: hidden; /* Prevents horizontal scrollbars */
+
+    /* Background image setup: ensures it covers the entire viewport */
+    background: url('../assets/adminbg3.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Back Arrow Styling */
+.back-arrow {
+    position: absolute; /* */
+    top: 20px; /* */
+    left: 20px; /* */
+    width: 40px; /* */
+    height: 40px; /* */
+    cursor: pointer; /* */
+    z-index: 1000; /* Ensure it's above other elements */
+    filter: invert(100%); /* Make the arrow white if it's black */
+}
+
+/* Main outer container for layout */
+.container {
+    display: flex;
+    justify-content: flex-end; /* Aligns content (including forms) to the right */
+    align-items: center;
+    height: 100%;
+    width: 100%;
+     /* Padding from the right edge, matching original form layout */
+    box-sizing: border-box; /* Ensures padding doesn't affect total width/height */
+    gap: 2rem; /* Gap between form sections (if applicable, though only update-form is styled here) */
+}
+
+/* Search Form Styles - Ensure it's visible initially */
+.form-section {
+    display: block; /* Explicitly set to block to ensure visibility */
+    position: relative;
+    text-align: center;
+    color: white;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto; /* Aligns to the right */
+    margin-right: 0;
+    transition: all 0.3s ease;
+}
+
+.underline {
+    text-decoration: underline;
+    font-size: clamp(2rem, 3.5vw, 2.625rem);
+    display: inline-block;
+    margin-bottom: 1vh;
+    font-weight: 100;
+}
+
+.bold-text {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: clamp(1.8rem, 3vw, 2.6875rem);
+    line-height: 1.2;
+    margin-bottom: 2.5vh;
+}
+
+/* Base input and textarea styles for search form, kept as in updateMedicine.css */
+input[type="text"]:not(.update-form input[type="text"]),
+textarea:not(.update-form textarea) {
+    padding: 1.2vh 1vw;
+    border-radius: 0;
+    border: 2px solid;
+    border-image: linear-gradient(to right, #52d0f2, #a244e3) 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+    font-size: clamp(0.875rem, 1.2vw, 1rem);
+    margin-bottom: 1.5vh;
+    width: 100%;
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+/* Base button styles for search form, kept as in updateMedicine.css */
+button:not(.update-form button) {
+    background: linear-gradient(to right, #8b2de2, #ef77ff);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 1vh 2vw;
+    font-size: clamp(0.875rem, 1.2vw, 1rem);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.lock-icon {
+    width: clamp(16px, 1.2vw, 18px);
+    height: clamp(16px, 1.2vw, 18px);
+    margin-left: 0.5vw;
+    vertical-align: middle;
+}
+
+button:hover {
+    background: linear-gradient(to right, #ef77ff, #8b2de2);
+}
+
+/* Update Form Styles - Crucially, set display to none initially */
+.update-form {
+   position: relative;
+    display: none; /* THIS IS THE KEY CHANGE */
+    width: 400px; /* Fixed width from first CSS's .form-box */
+    align-items: center;
+    justify-content: space-between; /* From first CSS's .form-box */
+    background: rgba(255, 255, 255, 0.1);
+    border-top-left-radius: 36px; /* From first CSS's .form-box */
+    border-bottom-left-radius: 36px; /* From first CSS's .form-box */
+    padding: 20px; /* From first CSS's .form-box */
+    padding-right: 40px; /* From first CSS's .form-box */
+    padding-left: 10px; /* From first CSS's .form-box */
+    color: white;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    margin-left: auto; /* Keeps it right-aligned */
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Ensures padding doesn't affect total width/height */
+}
+
+.update-form.active { /* This class is now redundant as we'll use direct style manipulation */
+    display: flex;
+}
+
+/* Heading for the update form */
+.update-form #heading {
+    font-size: 1.5em; /* From first CSS's #heading */
+    margin-bottom: 25px; /* From first CSS's #heading */
+    transform: rotate(270deg); /* From first CSS's #heading */
+    position: relative;
+    left: -21px; /* From first CSS's #heading */
+    font-family: 'Orbitron', sans-serif; /* Ensure Orbitron font */
+    /* white-space: nowrap removed to match original .form-box #heading behavior */
+}
+
+/* Form layout - vertical stacking within the update form */
+.update-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 19px; /* Updated gap from user's final changes to first CSS */
+    width: 100%;
+    position: relative;
+    left: -104px; /* Updated left position from user's final changes to first CSS */
+}
+
+/* Input and textarea field styling for the update form */
+.update-form input[type="text"],
+.update-form textarea {
+    padding: 10px; /* From first CSS */
+    border-radius: 10px; /* From first CSS */
+    border: 2px solid white; /* From first CSS */
+    background-color: rgba(255,255,255,0.1); /* From first CSS */
+    color: white;
+    font-size: 14px; /* From first CSS */
+    outline: none;
+    box-sizing: border-box;
+}
+
+.update-form input::placeholder{
+    color: whitesmoke;
+    opacity: 1;
+}
+
+/* Fixed height for textarea in update form */
+.update-form textarea {
+    resize: none;
+    height: 60px; /* From first CSS */
+    color: white;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+/* Styling for the warning radio options in update form */
+.update-form .warning {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: black;
+    font-size: 13px; /* Base font size */
+    max-width: 198px; /* Base max-width */
+    box-sizing: border-box;
+}
+
+/* Spacing for radio inputs inside .warning in update form */
+.update-form .warning input {
+    margin-left: 5px;
+}
+
+/* Submit button styling for update form */
+.update-form button {
+    margin-top: 4px; /* From first CSS */
+    padding: 6px; /* From first CSS */
+    background: linear-gradient(to right, #8b2de2, #ef77ff); /* Gradient bg */
+    color: white;
+    border: none;
+    border-radius: 10px; /* From first CSS */
+    font-size: 27px; /* Base font size */
+    cursor: pointer;
+    width: 139px; /* Base width */
+    font-family: 'Orbitron';
+    font-weight: 100;
+    box-sizing: border-box;
+}
+
+/* Hover effect for button in update form */
+.update-form button:hover {
+    background: linear-gradient(to right, #ef77ff, #8b2de2); /* Reverse gradient */
+}
+
+/* Flex layout for last row of form (radio + button) in update form */
+.update-form #lastdiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 7px; /* From first CSS */
+}
+
+/* Media Queries for responsiveness */
+
+/* For smaller screens, adjust the padding and size of the update-form */
+@media (max-width: 1366px) {
+    .update-form {
+        width: 34vw;
+        max-width: 400px;
+        padding: 1.5vw;
+        padding-right: 3vw;
+        padding-left: 0.8vw;
+        border-top-left-radius: 2.5vw;
+        border-bottom-left-radius: 2.5vw;
+    }
+    .update-form #heading {
+        font-size: 1.5em;
+        margin-bottom: 25px;
+        transform: rotate(270deg);
+        position: relative;
+        left: -21px;
+        font-family: 'Orbitron', sans-serif;
+    }
+    .update-form form {
+        gap: 19px;
+        width: 100%;
+        position: relative;
+        left: -104px;
+    }
+    .update-form input[type="text"],
+    .update-form textarea {
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid white;
+        background-color: rgba(255,255,255,0.1);
+        color: white;
+        font-size: 14px;
+        outline: none;
+        box-sizing: border-box;
+    }
+    .update-form textarea {
+        resize: none;
+        height: 60px;
+        min-height: 60px;
+        color: white;
+        border-radius: 10px;
+        border: 2px solid white;
+    }
+    .update-form .warning {
+        height: 60px;
+        min-height: 60px;
+        color: black; /* Changed from white to black as per original design */
+        border-radius: 10px;
+        border: 2px solid white; /* Changed from white to black as per original design */
+    }
+    .update-form .warning input {
+        margin-left: 5px;
+    }
+    .update-form button {
+        margin-top: 4px;
+        padding: 6px;
+        background: linear-gradient(to right, #8b2de2, #ef77ff);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 27px;
+        cursor: pointer;
+        width: 139px;
+        font-family: 'Orbitron';
+        font-weight: 100;
+        box-sizing: border-box;
+    }
+    .update-form button:hover {
+        background: linear-gradient(to right, #ef77ff, #8b2de2);
+    }
+    .update-form #lastdiv {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 7px;
+        width: 100%;
+    }
+}
+
+/* Further adjustments for very small screens (e.g., mobile landscape) */
+@media (max-width: 768px) {
+    .container {
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 5vh;
+    }
+    .form-section, .update-form {
+        width: 80vw;
+        padding: 3vw;
+        padding-right: 5vw;
+        padding-left: 2vw;
+        border-radius: 5vw;
+        flex-direction: column;
+    }
+    .form-section h1, .update-form #heading {
+        transform: none;
+        position: static;
+        margin-bottom: 20px;
+        font-size: 2em;
+        text-align: center;
+    }
+    .form-section input[type="text"],
+    .form-section button,
+    .update-form form {
+        left: 0;
+        gap: 15px;
+        width: 90%;
+    }
+    .update-form input[type="text"],
+    .update-form textarea {
+        font-size: 3.5vw;
+        padding: 2.5vw;
+        border-radius: 2vw;
+    }
+    .update-form textarea {
+        height: 15vw;
+    }
+    .update-form .warning {
+        font-size: 3vw;
+        padding: 1.5vw 2.5vw;
+        border-radius: 2vw;
+        max-width: none;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .update-form button {
+        padding: 2vw;
+        font-size: 5vw;
+        width: 100%;
+    }
+    .update-form #lastdiv {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+}
+
+/* Specific adjustment for very tall screens if needed (e.g., desktops with high resolution) */
+@media (min-height: 900px) {
+    .update-form {
+        width: 28vw;
+        padding: 30px;
+        padding-right: 60px;
+        padding-left: 20px;
+    }
+    .update-form #heading {
+        font-size: 1.8em;
+        left: -35px;
+    }
+    .update-form form {
+        gap: 15px;
+        left: -80px;
+    }
+    .update-form input[type="text"],
+    .update-form textarea {
+        font-size: 16px;
+        padding: 12px;
+    }
+    .update-form textarea {
+        height: 70px;
+    }
+    .update-form .warning {
+        font-size: 14px;
+        padding: 6px 12px;
+        max-width: 220px;
+    }
+    .update-form button {
+        padding: 8px;
+        font-size: 30px;
+        width: 150px;
+    }
+}
+
+/* Base adjustment for exactly 1366px width and 768px height */
+@media (width: 1366px) and (height: 768px) {
+
+    .update-form {
+        width: 400px;
+        padding: 20px;
+        padding-right: 40px;
+        padding-left: 10px;
+        border-top-left-radius: 36px;
+        border-bottom-left-radius: 36px;
+    }
+    .update-form #heading {
+        font-size: 1.5em;
+        margin-bottom: 25px;
+        left: -21px;
+    }
+    .update-form form {
+      gap: 19px;
+      left: -104px;
+    }
+    .update-form input[type="text"],
+    .update-form textarea {
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+    .update-form textarea {
+        height: 60px;
+    }
+    .update-form .warning {
+        padding: 5px 10px;
+        font-size: 13px;
+        max-width: 198px;
+    }
+    .update-form button {
+        padding: 6px;
+        font-size: 27px;
+        width: 139px;
+    }
+    .update-form #lastdiv {
+        gap: 7px;
+    }
+}

@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Lato:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
+  height: 100vh;
+  background: url('../assets/adminbg.png') no-repeat center top fixed;
+  background-size: auto;
+  box-sizing: content-box;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: self-end;
+  align-content: flex-end;
+  text-align: right;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  text-align: right;
+  color: white;
+}
+
+.content h1 {
+  font-size: 2.5em;
+  margin-bottom: 60px;
+  line-height: 1.2;
+  background: linear-gradient(to right, #52d0f2, #a244e3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+  right: -112px;
+  font-family: 'Orbitron', serif; /* Updated to Times New Roman */
+  font-weight: 600;
+}
+
+button {
+  padding: 20px 50px;
+  font-size: 1.3em;
+  border: none;
+  border-radius: 40px;
+  color: white;
+  background: linear-gradient(to right, #2ca0e8, #083b78);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  position: relative;
+  text-align: start;
+  font-family: 'Orbitron', serif; /* Updated to Times New Roman */
+  font-weight: 600;
+}
+
+#btn1 {
+  width: auto;
+}
+
+button.logout {
+  background: linear-gradient(to right, #51c6f0, #2f5fef);
+}
+
+/* Removed previous Poppins override and set consistent Times New Roman styling */
+#btnAdd,
+#btnUpdate,
+#btnDelete,
+button.logout {
+  font-family: 'Orbitron', serif;
+  font-weight: 200;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
