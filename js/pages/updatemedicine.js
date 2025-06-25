@@ -26,7 +26,7 @@ const db = getFirestore(app);
 // Get DOM elements
 const searchBtn = document.getElementById("searchBtn");
 const searchInput = document.querySelector("input[name='medName']");
-const searchForm = document.getElementById("searchForm"); // Get the search form element
+const searchForm = document.getElementById("searchForm"); 
 const updateForm = document.getElementById("updateForm");
 const medForm = document.getElementById("medForm");
 
@@ -35,12 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const backArrow = document.getElementById('backArrow');
     if (backArrow) {
         backArrow.addEventListener('click', () => {
-            window.location.href = '../../pages/admin/adminDashboard.html'; // Redirect to adminDashboard.html
+            window.location.href = '../../pages/admin/adminDashboard.html'; 
         });
     }
 
     // Ensure only search form is visible on page load
-    searchForm.style.display = "block"; // Or "flex" if its internal layout requires it
+    searchForm.style.display = "block"; 
     updateForm.style.display = "none";
 });
 
@@ -54,11 +54,11 @@ searchBtn.addEventListener("click", async () => {
   }
   try {
     let docSnap;
-    let docId = searchValue; // Try by ID
+    let docId = searchValue; 
     const docRef = doc(db, "medicines", searchValue);
     docSnap = await getDoc(docRef);
 
-    // Try by medName if not found by ID
+    
     if (!docSnap.exists()) {
       const q = query(
         collection(db, "medicines"),
@@ -83,7 +83,7 @@ searchBtn.addEventListener("click", async () => {
     
     // Hide search form and show update form
     searchForm.style.display = "none";
-    updateForm.style.display = "flex"; // Use "flex" as per your CSS class .update-form's display
+    updateForm.style.display = "flex"; 
 
     // Populate the form fields
     medForm.medID.value = docId;
@@ -97,17 +97,16 @@ searchBtn.addEventListener("click", async () => {
     medForm.description.value = data.description || "";
 
     // Set radio button
-    if (data.warningAlert === "Do not exceed recommended dose.") { // Check the actual value from Firestore
-      medForm.warning[0].checked = true; // 'yes' radio button
-    } else {
-      medForm.warning[1].checked = true; // 'no' radio button
+    if (data.warningAlert === "Do not exceed recommended dose.") { 
+      medForm.warning[0].checked = true; 
+      medForm.warning[1].checked = true; 
     }
 
 
   } catch (error) {
     console.error("Error fetching medicine:", error);
     alert("Error fetching medicine.");
-    // In case of error, ensure update form is hidden and search form is visible
+  
     searchForm.style.display = "block";
     updateForm.style.display = "none";
   }
@@ -134,7 +133,6 @@ medForm.addEventListener("submit", async (e) => {
     const docRef = doc(db, "medicines", medID);
     await updateDoc(docRef, medData);
     alert("Medicine updated successfully!");
-    // After successful update, optionally hide the update form and show search form again
     medForm.reset(); // Clear the form
     searchForm.style.display = "block";
     updateForm.style.display = "none";
