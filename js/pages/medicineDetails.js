@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // For Home and Admin, we'll ensure their parent <a> tag has the correct link.
     const homeLink = document.getElementById('homeBtn');
     if (homeLink) {
-        homeLink.href = '/pages/user/homePage.html'; // Set the destination for the Home link
+        homeLink.href = '/pages/user/homePage.html'; 
         console.log("Home button link set.");
     } else {
         console.error("Home button link (id='homeBtn') not found!");
@@ -24,24 +24,23 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Admin button link (id='adminBtn') not found!");
     }
 
-    // For the Categories dropdown, we need JS to toggle visibility.
+   
     const categoriesBtn = document.getElementById('categoriesBtn');
     const dropdownMenu = document.getElementById('dropdownMenu');
     const categoriesWrapper = document.getElementById('categories-wrapper');
 
     if (categoriesBtn && dropdownMenu && categoriesWrapper) {
-        // Set the href for the links inside the dropdown
+        
         const links = dropdownMenu.getElementsByTagName('a');
         if (links.length > 0) links[0].href = '/pages/user/medicineByCategory.html';
         if (links.length > 1) links[1].href = '/pages/user/medicineByDisease.html';
 
-        // Add the click listener to toggle the 'hidden' class
         categoriesBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Stop the click from immediately closing the menu
+            e.stopPropagation(); 
             dropdownMenu.classList.toggle('hidden');
         });
         
-        // Add a global listener to close the menu when clicking elsewhere
+       
         document.addEventListener('click', (e) => {
             if (!categoriesWrapper.contains(e.target)) {
                 dropdownMenu.classList.add('hidden');

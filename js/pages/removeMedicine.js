@@ -37,15 +37,14 @@ const formFields = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Event listener for the back arrow
     const backArrow = document.getElementById('backArrow');
     if (backArrow) {
         backArrow.addEventListener('click', () => {
-            window.location.href = '../../pages/admin/adminDashboard.html'; // Redirect to adminDashboard.html
+            window.location.href = '../../pages/admin/adminDashboard.html';
         });
     }
 
-    // Ensure only search form is visible on page load
+   
     searchForm.style.display = 'block';
     removeForm.style.display = 'none';
 });
@@ -74,7 +73,7 @@ searchButton.addEventListener('click', async () => {
 
       if (!querySnapshot.empty) {
         medDoc = querySnapshot.docs[0];
-        docId = medDoc.id; // Update docId if found by name
+        docId = medDoc.id; 
       }
     }
 
@@ -82,14 +81,14 @@ searchButton.addEventListener('click', async () => {
       displayMedicine(medDoc.data(), docId);
     } else {
       alert('Medicine not found!');
-      // If not found, keep search form visible and ensure remove form is hidden
+     
       searchForm.style.display = 'block';
       removeForm.style.display = 'none';
     }
   } catch (error) {
     console.error('Error searching for medicine:', error);
     alert('Error searching for medicine.');
-    // In case of error, ensure remove form is hidden and search form is visible
+   
     searchForm.style.display = 'block';
     removeForm.style.display = 'none';
   }
@@ -97,21 +96,21 @@ searchButton.addEventListener('click', async () => {
 
 function displayMedicine(med, docId) {
   searchForm.style.display = 'none';
-  removeForm.style.display = 'flex'; // Use 'flex' as per your CSS display type
+  removeForm.style.display = 'flex'; 
 
   removeButton.dataset.docId = docId;
 
-  formFields.medID.value = med.medID || docId; // Use docId if medID property isn't explicitly stored
+  formFields.medID.value = med.medID || docId;
   formFields.medName.value = med.medName || "";
   formFields.genericName.value = med.genericName || "";
   formFields.chemicalFormula.value = med.chemicalFormula || "";
-  formFields.medCategory.value = med.medCategory || ""; // Corrected property name from 'category' to 'medCategory'
+  formFields.medCategory.value = med.medCategory || ""; 
   formFields.symptoms.value = med.symptoms || "";
   formFields.usedInDisease.value = med.usedInDisease || "";
   formFields.dosage.value = med.dosage || "";
   formFields.description.value = med.description || "";
 
-  // Check the 'warningAlert' field from Firestore to set the radio button
+  
   if (med.warningAlert === "Do not exceed recommended dose.") {
     formFields.warningYes.checked = true;
   } else {

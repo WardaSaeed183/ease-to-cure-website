@@ -1,6 +1,4 @@
 // js/pages/medicineByCategory.js
-
-// Import necessary Firestore functions and the shared DB instance
 import { db } from '/js/firebase/firebase.js';
 import { collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js";
 
@@ -21,24 +19,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (homeButton) homeButton.addEventListener('click', () => { window.location.href = '/pages/user/homePage.html'; });
     if (adminButton) adminButton.addEventListener('click', () => { window.location.href = '/pages/auth/login.html'; });
 
-    // --- NEW: Setup Navbar Categories Dropdown ---
+    // --- Setup Navbar Categories Dropdown ---
     const categoriesBtn = document.getElementById('categoriesBtn');
     const dropdownMenu = document.getElementById('dropdownMenu');
     const categoriesWrapper = document.getElementById('categories-wrapper');
 
     if (categoriesBtn && dropdownMenu && categoriesWrapper) {
         const links = dropdownMenu.getElementsByTagName('a');
-        // Set the correct redirection paths for the dropdown links
         if (links.length > 0) links[0].href = '/pages/user/medicineByCategory.html';
         if (links.length > 1) links[1].href = '/pages/user/medicineByDisease.html';
 
-        // Add click listener to show/hide the dropdown
         categoriesBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             dropdownMenu.classList.toggle('hidden');
         });
 
-        // Add a global click listener to hide the dropdown when clicking elsewhere
         document.addEventListener('click', (e) => {
             if (!categoriesWrapper.contains(e.target)) {
                 dropdownMenu.classList.add('hidden');
@@ -57,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
             populateCategoryDropdown(categoryInput, categoryDropdown);
             categoryDropdown.style.display = "block";
         });
-        // We need to adjust this to avoid conflicts with the navbar dropdown
         document.addEventListener("click", (event) => {
              if (!categoryDropdown.contains(event.target) && event.target !== categoryInput) {
                 categoryDropdown.style.display = "none";

@@ -1,7 +1,5 @@
 // js/pages/feedBack.js
 
-// It's best practice to wrap all your code in this listener.
-// This ensures the HTML is fully loaded before the script tries to find any elements.
 document.addEventListener("DOMContentLoaded", () => {
     
     // --- Feature 1: Navbar Dropdown and Redirection ---
@@ -9,25 +7,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (homeBtn) homeBtn.href = '/pages/user/homePage.html'; 
 
     const adminBtn = document.querySelector('a[href="login.html"]');
-    if (adminBtn) adminBtn.href = '/pages/auth/login.html'; // Set correct path for Admin
+    if (adminBtn) adminBtn.href = '/pages/auth/login.html';
 
     const categoriesBtn = document.getElementById('categoriesBtn');
     const dropdownMenu = document.getElementById('dropdownMenu');
     const categoriesWrapper = document.getElementById('categories-wrapper');
 
     if (categoriesBtn && dropdownMenu && categoriesWrapper) {
-        // Set correct paths for dropdown links
         const links = dropdownMenu.getElementsByTagName('a');
         if (links.length > 0) links[0].href = '/pages/user/medicineByCategory.html';
         if (links.length > 1) links[1].href = '/pages/user/medicineByDisease.html';
 
-        // Add event listener to toggle dropdown
         categoriesBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             dropdownMenu.classList.toggle('hidden');
         });
-
-        // Add global listener to close dropdown
         document.addEventListener('click', function (e) {
             if (!categoriesWrapper.contains(e.target)) {
                 dropdownMenu.classList.add('hidden');
@@ -116,7 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// --- Helper functions can live outside the DOMContentLoaded listener ---
 
 function showAlert() {
     const alertBox = document.getElementById('customAlert');
@@ -128,19 +121,19 @@ function closeAlert() {
     if (alertBox) alertBox.style.display = 'none';
 }
 
-// Make closeAlert globally accessible for the onclick attribute
+
 window.closeAlert = closeAlert;
 
 async function showSuccessOverlay() {
     const overlay = document.getElementById('successOverlay');
     if (overlay) {
-        overlay.style.display = 'flex'; // Use style to show it
-        setTimeout(() => overlay.classList.add('active'), 10); // Then add active class for transition
+        overlay.style.display = 'flex'; 
+        setTimeout(() => overlay.classList.add('active'), 10); 
 
         await new Promise(resolve => setTimeout(resolve, 4200));
 
         overlay.classList.remove('active');
-        await new Promise(resolve => setTimeout(resolve, 300)); // Wait for fade out
+        await new Promise(resolve => setTimeout(resolve, 300)); 
         overlay.style.display = 'none';
     }
 }

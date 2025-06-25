@@ -1,5 +1,4 @@
 // js/pages/addmedicine.js
-
 import { auth, db } from '../firebase/firebase.js';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js';
 import { doc, getDoc, setDoc } from 'https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js';
@@ -9,14 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const backArrow = document.getElementById('backArrow');
     if (backArrow) {
         backArrow.addEventListener('click', () => {
-            window.location.href = '../../pages/admin/adminDashboard.html'; // Redirect to adminDashboard.html
+            window.location.href = '../../pages/admin/adminDashboard.html'; 
         });
     }
 
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            // ** NEW DEBUGGING LOG **
-            // Let's see exactly who the browser thinks is logged in.
+           
             console.log("Authentication confirmed on client-side.");
             console.log("User Object:", user);
             console.log("User UID:", user.uid);
@@ -44,13 +42,12 @@ function initializePage(currentUser) {
     medicineForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        // ** NEW DEBUGGING LOG **
-        // Confirming the user state right before the database call.
+       
         console.log("'Add' button clicked. Verifying user state again.");
         if (auth.currentUser) {
             console.log("auth.currentUser is valid. UID:", auth.currentUser.uid);
         } else {
-            // This would be a major red flag if it happens.
+            
             console.error("CRITICAL ERROR: auth.currentUser is NULL right before write operation!");
             alert("Your session seems to have expired just now. Please try again.");
             return;
@@ -110,7 +107,6 @@ function initializePage(currentUser) {
             medicineForm.reset();
 
         } catch (error) {
-            // ** ENHANCED ERROR LOGGING **
             console.error("❌ FIRESTORE OPERATION FAILED:", error.code, error.message);
             alert(`Operation failed. Please check the console for details. Error: ${error.message}`);
         }

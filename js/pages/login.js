@@ -1,14 +1,12 @@
 // js/pages/login.js
 
-// Firebase imports should be at the top level
-import { auth } from '/js/firebase/firebase.js'; // Use absolute path for reliability
+import { auth } from '/js/firebase/firebase.js'; 
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
    sendPasswordResetEmail
 } from 'https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js';
 
-// The main DOMContentLoaded listener. ALL code that touches the HTML page goes inside here.
 document.addEventListener("DOMContentLoaded", () => {
     
     console.log("login.js script loaded and DOM is ready.");
@@ -136,9 +134,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         console.log("Forgot Password link initialized.");
     }
-    // =======================================================
-    // --- END OF NEW FEATURE ---
-    // =======================================================
 
 
     // --- Feature: Admin Registration Form ---
@@ -148,8 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
         registerForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            // Note: This registration form has different input fields than the login form.
-            // Using more specific IDs would be better, but we can query them like this.
+
             const emailInput = registerForm.querySelector('input[type="email"]');
             const passwordInput = registerForm.querySelector('input[type="password"]');
             const confirmPasswordInput = registerForm.querySelectorAll('input[type="password"]')[1];
